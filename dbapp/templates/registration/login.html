@@ -1,0 +1,16 @@
+<!-- templates/registration/login.html -->
+<link rel="stylesheet" type="text/css" href='/static/dbapp/login-style.css?{% now "U" %}'>
+<div class="col-md-6">
+<!--    <img src='static/dbapp/images/background.jpeg'/>-->
+   <div>
+       <h1>Coffee Bean Selector</h1>
+        <p>Welcome to the landing page for Coffee Bean Selector.<br>
+            To gain access to the database, please contact the creator for login credentials!</p>
+
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Login</button>
+        </form>
+   </div>
+</div>

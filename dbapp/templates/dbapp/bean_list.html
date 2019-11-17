@@ -1,0 +1,26 @@
+{% load django_tables2 %}
+{% load static %}
+{% load bootstrap3 %}
+<div class="content">
+    <row class = header>
+        <h1>Coffee Bean Selector</h1>
+        <p>This is a database lookup tool that can be used to search for the coffee bean with just the right taste.
+        You can filter with any of the boxed categories to see only beans with the selected traits.</p>
+    </row>
+    <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    {% if filter %}
+    <div class="row">
+        <h3 class="filter-box-name">Filters</h3>
+        <form action="" method="get" class="form form-inline">
+            {% csrf_token %}
+            {% bootstrap_form filter.form layout='inline' %}
+            {% bootstrap_button 'Filter' %}
+        </form>
+    </div>
+    {% endif %}
+
+    {% render_table table 'django_tables2/bootstrap.html' %}
+    </body>
+    <link rel="stylesheet" type="text/css" href='/static/dbapp/style.css?{% now "U" %}'>
+</div>

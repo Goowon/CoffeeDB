@@ -1,0 +1,93 @@
+{% load django_tables2 %}
+{% load static %}
+{% load bootstrap3 %}
+<div class="content">
+    <row class = header>
+        <h1>Coffee Bean Selector</h1>
+        <p>This is a database lookup tool that can be used to search for the coffee bean with just the right taste.
+        You can filter with any of the boxed categories to see only beans with the selected traits.</p>
+    </row>
+    <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    {% if filter %}
+    <div class="row">
+        <h3 class="filter-box-name">Filters</h3>
+        <form action="" method="get" class="form form-inline">
+            {% csrf_token %}
+            <div class="form-group has-success"><label class="control-label" for="id_blend_name__icontains">Bean contains</label><input type="text" name="blend_name__icontains" class="form-control" placeholder="Bean contains" title="" id="id_blend_name__icontains"></div>
+            <div class="form-group has-success"><label class="control-label" for="id_company_name__icontains">Company contains</label><input type="text" name="company_name__icontains" class="form-control" placeholder="Company contains" title="" id="id_company_name__icontains"></div>
+            <div class="form-group has-success"><label class="control-label" for="id_origin__icontains">Origin contains</label><input type="text" name="origin__icontains" class="form-control" placeholder="Origin contains" title="" id="id_origin__icontains"></div>
+            <div class="form-group has-success"><label class="control-label" for="id_vendor_location__icontains">Location contains</label><input type="text" name="vendor_location__icontains" class="form-control" placeholder="Location contains" title="" id="id_vendor_location__icontains"></div>
+            <div class="form-group has-success"><label class="control-label" for="id_review_date__icontains">Review Date contains</label><input type="text" name="review_date__icontains" class="form-control" placeholder="Review Date contains" title="" id="id_review_date__icontains"></div>
+            <div class="form-group has-success"><label class="control-label">Roast</label><div id="id_roast">
+                <div class="checkbox"><label for="id_roast_0"><input type="checkbox" name="roast" value="Light" class="" title="" id="id_roast_0" checked>
+             Light</label>
+
+            </div>
+                <div class="checkbox"><label for="id_roast_1"><input type="checkbox" name="roast" value="Medium-Light" class="" title="" id="id_roast_1" checked>
+             Medium-Light</label>
+
+            </div>
+                <div class="checkbox"><label for="id_roast_2"><input type="checkbox" name="roast" value="Medium" class="" title="" id="id_roast_2">
+             Medium</label>
+
+            </div>
+                <div class="checkbox"><label for="id_roast_3"><input type="checkbox" name="roast" value="Medium-Dark" class="" title="" id="id_roast_3">
+             Medium-Dark</label>
+
+            </div>
+                <div class="checkbox"><label for="id_roast_4"><input type="checkbox" name="roast" value="Dark" class="" title="" id="id_roast_4">
+             Dark</label>
+
+            </div>
+            </div></div>
+            <div class="form-group has-success"><label class="control-label">Flavor(s)</label><div id="id_flavors">
+                <div class="checkbox"><label for="id_flavors_0"><input type="checkbox" name="flavors" value="Fruity" class="" title="" id="id_flavors_0">
+             Fruity</label>
+
+            </div>
+                <div class="checkbox"><label for="id_flavors_1"><input type="checkbox" name="flavors" value="Floral" class="" title="" id="id_flavors_1">
+             Floral</label>
+
+            </div>
+                <div class="checkbox"><label for="id_flavors_2"><input type="checkbox" name="flavors" value="Sweet" class="" title="" id="id_flavors_2" checked>
+             Sweet</label>
+
+            </div>
+                <div class="checkbox"><label for="id_flavors_3"><input type="checkbox" name="flavors" value="Earthy/Herbal" class="" title="" id="id_flavors_3">
+             Earthy/Herbal</label>
+
+            </div>
+                <div class="checkbox"><label for="id_flavors_4"><input type="checkbox" name="flavors" value="Nutty" class="" title="" id="id_flavors_4">
+             Nutty</label>
+
+            </div>
+                <div class="checkbox"><label for="id_flavors_5"><input type="checkbox" name="flavors" value="Spice" class="" title="" id="id_flavors_5">
+             Spice</label>
+
+            </div>
+                <div class="checkbox"><label for="id_flavors_6"><input type="checkbox" name="flavors" value="Smoky" class="" title="" id="id_flavors_6">
+             Smoky</label>
+
+            </div>
+                <div class="checkbox"><label for="id_flavors_7"><input type="checkbox" name="flavors" value="Chocolatey" class="" title="" id="id_flavors_7">
+             Chocolatey</label>
+
+            </div>
+            </div></div>
+            <div class="form-group has-success"><label class="control-label" for="id_notes">Note(s)</label><input type="text" name="notes" class="form-control" placeholder="Note(s)" title="" id="id_notes"></div>
+<!--            {% for field in filter.form %}-->
+<!--            <div class="col-md-4">-->
+<!--                {{ field }}-->
+<!--            </div>-->
+<!--            {% endfor %}-->
+            {% bootstrap_button 'Filter' %}
+<!--            {% bootstrap_button 'Clear' button_type="reset" %}-->
+        </form>
+    </div>
+    {% endif %}
+
+    {% render_table table 'django_tables2/bootstrap.html' %}
+    </body>
+    <link rel="stylesheet" type="text/css" href='static/dbapp/style.css?{% now "U" %}'>
+</div>

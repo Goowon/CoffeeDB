@@ -1,0 +1,71 @@
+th {
+    color: #c7703a;
+}
+a {
+    color: #c7703a;
+}
+div.content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: Georgia, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.row {
+    border: 2px solid #c7703a;
+    padding: 10px;
+    width: 100%;
+}
+.form.form-inline {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#id_roast {
+
+}
+#id_flavors {
+
+}
+.checkbox {
+    padding: 5px;
+}
+.form-group {
+    padding: 10px;
+}
+h1 {
+    color: #c7703a;
+    text-align: center;
+}
+h3.filter-box-name {
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    color: #c7703a;
+}
+p {
+    text-align: center;
+    padding: 10px;
+}
+table.table {
+    overflow: auto;
+    font-size: normal;
+    zoom: 90%;
+}
+button.btn.btn-default {
+  background-image: url("images/filter_clear.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 32px;
+  width: 32px;
+  border: none;
+  color: transparent;
+  font-size: 0;
+
+}
